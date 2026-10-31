@@ -20,3 +20,8 @@ With auto-deploy enabled, committing to the connected main branch starts a new d
 
 ## Important
 Deploying to Render restarts the Node process. In-memory rooms and active sessions will be lost during the deployment. Test with a new room after deployment. The desktop zero-scroll layout targets normal browser zoom and standard laptop/TV viewports; unusually short windows and open browser toolbars can require compact adjustments.
+
+## Corrected v02 screen flow (October 31)
+Welcome → Host Setup (Category → Subcategory → Difficulty) or Join → Waiting Lobby (room code/QR/team roster) → Board only after Start Game. Desktop and TV screens use viewport-based sizing; mobile setup can scroll vertically. The lobby intentionally does not display the board, and the active board does not display the lobby QR. This correction replaces the earlier cramped single-page v02 layout.
+
+To update GitHub replace public/index.html, public/style.css, and public/app.js from this ZIP. The server.js and game.js gameplay logic is unchanged from the preceding v02 package.
