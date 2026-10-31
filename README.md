@@ -1,44 +1,22 @@
-# Clue Adda v1 — Test Build
+# Clue Adda v02
 
-Desi roots. Global celebrations. One epic game night.
+Responsive layout update and selectable subcategories. This is a complete source ZIP based on Clue Adda v1.
 
-## What is included
-- Seven searchable categories, with Bollywood and 90s Nostalgia first.
-- Five randomly selected named subcategories per category, with descriptions.
-- Easy / Medium / Hard word pools (editorial first-pass; refine after playtesting).
-- Server-side randomized 25-word boards, starting team and secret colors.
-- Host, Red/Blue Spymasters and players with synchronized Socket.IO state.
-- Host-only theme/difficulty changes after a game, or before starting; same room and cumulative scores.
-- Play Again generates a new board from the same subcategory and difficulty while preserving scores.
-- Per-device sound toggle and volume; host defaults on, other roles muted.
-- Reduced/off motion setting, themed popup copy, and simple synthesized audio cues.
+## What's new
+- Desktop/TV layout uses viewport-height fitting with no page scrolling at common screen sizes and normal browser zoom; category cards use four columns and Host/Join are side by side.
+- Mobile setup uses two-column category cards and permits vertical scrolling.
+- Host setup order: Category -> Subcategory (one of five, or Surprise Me) -> Difficulty -> Create Room.
+- The host's post-round new-board selector also supports category, subcategory, and difficulty.
+- Existing word pools, gameplay rules, score preservation, multiplayer and QR joining are retained.
 
-## Run locally
-Install Node.js 20+ and run from the folder containing `package.json`:
+## Local run
+Install Node.js 20+, then run `npm install`, `npm test`, `npm start` and visit http://localhost:3000.
 
-```bash
-npm install
-npm test
-npm start
-```
+## GitHub changes from v1
+Replace `public/index.html`, `public/style.css`, `public/app.js`, and `server.js` with the v02 versions. Optionally replace README.md. `game.js`, `package.json`, and `test.mjs` are unchanged.
 
-Open http://localhost:3000 on your computer. To test with multiple browser windows on the same computer, use separate private/incognito profiles or separate browsers so each gets its own session. For phones, deploy to Render or access your computer's LAN IP on the same Wi-Fi, ensuring port 3000 is accessible.
+## Render
+With auto-deploy enabled, committing to the connected main branch starts a new deploy. Otherwise use Render -> Manual Deploy -> Deploy latest commit.
 
-## Deploy safely to Render
-Keep the original Bhoot & Clues service as a backup. Create a **new** Web Service connected to a repository containing this folder's files at its root. Runtime: Node; Build Command: `npm install`; Start Command: `npm start`. Set Node version 20 or later. Render assigns the public URL if the name is available. Do not assume changing the old service's name changes its URL.
-
-## Playtest checklist
-1. Host creates room, selects Bollywood/Medium; confirm random subcategory and six-digit code.
-2. Join on two phones as Red and Blue Spymasters, plus two as players. Verify both spymasters see the same secret colors and players do not.
-3. Start, send clue, guess and pass. Check turn and card synchronization.
-4. Guess Assassin; verify winner and score. Use Play Again; verify score stays and board changes.
-5. Change category and difficulty; confirm room code, teams and score stay.
-6. Test QR join, reconnect, mute, and a small phone screen.
-
-## Known limitations / first-pass scope
-- The game has **no persistence across server restarts**: Render restarts clear active rooms and scores.
-- Difficulty is an editorial approximation, not calibrated by player testing. Some general words are reused between subcategories; new boards may overlap.
-- The 20 new seasonal subcategory lists are first-pass content and should be reviewed through playtesting.
-- Sounds are lightweight synthesized cues, not festival-specific audio recordings. Popup styling and motion are lightweight rather than fully illustrated fireworks/snow animations.
-- No external image assets are used.
-- This is based on the locally available Bhoot & Clues V9 archive, not a live fetch of the current GitHub repository.
+## Important
+Deploying to Render restarts the Node process. In-memory rooms and active sessions will be lost during the deployment. Test with a new room after deployment. The desktop zero-scroll layout targets normal browser zoom and standard laptop/TV viewports; unusually short windows and open browser toolbars can require compact adjustments.
