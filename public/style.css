@@ -75,3 +75,70 @@ button:not(.card):not(.category-option){transition:transform .18s ease,filter .1
 .roundhead .eyebrow{color:var(--festival)}.card{transition:transform .18s ease,background .2s ease}.card.guessable:hover{transform:translateY(-3px)}
 body[data-motion="off"] *,body[data-motion="off"] *::before,body[data-motion="off"] *::after{animation:none!important;transition:none!important}body[data-motion="reduced"] *{animation-duration:.05s!important;transition-duration:.05s!important}
 @media(max-width:480px){.category-cards{gap:8px}.category-option{padding:12px 9px;min-height:104px}.category-option strong{font-size:13px}}
+
+/* Clue Adda v02: full-screen desktop and TV, flowing mobile setup */
+.subcategory-field{margin-top:2px}.subcategory-description{margin:0;color:#e7cda8;font-size:.8rem;line-height:1.25}
+@media (min-width: 801px){
+ html,body{height:100%;overflow:hidden}
+ body{min-height:0}
+ main{max-width:none;width:100%;height:100dvh;min-height:0;padding:clamp(8px,1.4vh,18px) clamp(14px,2vw,36px);display:flex;flex-direction:column;gap:clamp(4px,.7vh,10px);overflow:hidden}
+ header{flex:0 0 auto;padding:0;display:flex;justify-content:center;align-items:center;gap:clamp(12px,2vw,30px)}
+ header h1{font-size:clamp(1.6rem,3.2vh,2.5rem);margin:0}header .eyebrow{font-size:.6rem}header .tag{margin:0;font-size:clamp(.7rem,1.5vh,.92rem)}
+ .rules-entry{position:absolute;right:clamp(14px,2vw,36px);top:clamp(8px,1.4vh,18px);margin:0;z-index:3}.rules-trigger{padding:7px 12px;font-size:.8rem}
+ #landing.panel{flex:1;min-height:0;width:100%;max-width:1500px;margin:0 auto;padding:clamp(10px,1.8vh,22px);display:flex;flex-direction:column;gap:clamp(5px,1vh,12px);overflow:hidden}
+ #landing .landing-heading{flex:0 0 auto;text-align:center}
+ #landing .landing-heading h2{font-size:clamp(1.2rem,2.4vh,1.8rem);margin:0}
+ #landing .landing-heading p{margin:2px 0;font-size:clamp(.75rem,1.5vh,.95rem);line-height:1.25}
+ .landing-columns{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(265px,1fr);gap:clamp(12px,1.5vw,26px);min-height:0;flex:1;text-align:left}
+ #createOptions{margin:0;min-height:0;display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto auto auto auto auto;gap:clamp(3px,.55vh,8px);align-content:stretch}
+ #createOptions h3{font-size:clamp(1rem,2vh,1.3rem)}#createOptions>p:not(.create-note){margin:0;font-size:.78rem;line-height:1.2}
+ #createOptions>label{font-size:.8rem;gap:2px}#createOptions input,#createOptions select{padding:clamp(6px,.8vh,10px);font-size:.82rem}
+ .category-cards{margin:0;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:clamp(5px,.75vh,10px);min-height:0;align-content:stretch}
+ .category-option{min-height:0;height:100%;padding:clamp(7px,1vh,13px);gap:clamp(2px,.4vh,6px);justify-content:center}
+ .category-option .category-icon{font-size:clamp(14px,2.2vh,22px)}.category-option strong{font-size:clamp(.68rem,1.45vh,.92rem);line-height:1.1}.category-option small{font-size:clamp(.57rem,1.15vh,.72rem)}
+ .theme-details{margin:0}.theme-details details{padding:clamp(5px,.65vh,9px) 10px}.theme-details summary{font-size:.74rem}.theme-details details[open]{position:relative;z-index:10;max-height:24vh;overflow:auto;box-shadow:0 10px 30px #0009}.theme-details p{font-size:.72rem;margin:5px 0}
+ .create-note{font-size:.69rem!important;line-height:1.15}
+ #create{padding:clamp(8px,1vh,12px)}
+ .join-column{background:#382942;border:1px solid #644d6a;border-radius:16px;padding:clamp(10px,1.4vw,22px);min-height:0;display:flex;flex-direction:column;justify-content:center;gap:clamp(6px,1vh,12px)}
+ .join-column .separator{margin:0;font-weight:800;font-size:1.1rem;color:#fff5e7}
+ #joinForm{gap:clamp(6px,1vh,12px)}#joinForm label{font-size:.77rem}#joinForm input,#joinForm select{padding:clamp(7px,1vh,12px);font-size:.85rem}#joinForm button{padding:10px}
+ #joinForm .team-option{padding:clamp(6px,1vh,12px) 5px;font-size:.72rem}
+ footer{flex:0 0 auto;margin:0;font-size:.7rem}
+ #game:not([hidden]){flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,23vw);grid-template-rows:auto auto auto auto minmax(0,1fr) auto;grid-template-areas:'identity identity' 'topbar topbar' 'roundhead help' 'status help' 'board help' 'controls help';column-gap:clamp(10px,1.2vw,20px);row-gap:clamp(3px,.6vh,8px);overflow:hidden}
+ #game .identity{grid-area:identity;position:static;margin:0;padding:5px;font-size:.76rem}
+ #game .rules-entry{display:none}
+ #game .topbar{grid-area:topbar;padding:6px 10px;font-size:.75rem}
+ #game .roundhead{grid-area:roundhead;margin:0;gap:8px}#game .roundhead h2{font-size:clamp(1rem,2.3vh,1.5rem);margin:0}#game .roundhead p{font-size:.74rem}#game .roundhead .eyebrow{font-size:.62rem}
+ #game .notice{display:none}#game .clue-banner{grid-area:status;position:static;padding:5px;font-size:clamp(.7rem,1.5vh,.92rem)}
+ #game .stats{grid-area:status;justify-self:end;z-index:1;margin:0;gap:4px;align-self:end;transform:translateY(100%);display:none}
+ #game .board{grid-area:board;min-height:0;height:100%;width:100%;padding:clamp(4px,.7vh,10px);gap:clamp(3px,.5vh,7px);grid-template-rows:repeat(5,minmax(0,1fr))}
+ #game .card{min-height:0;height:100%;font-size:clamp(.54rem,1.6vw,1.1rem);padding:2px}
+ #game .controls{grid-area:controls;min-height:0;margin:0;gap:5px;align-items:center;overflow-y:auto}
+ #game .controls button{padding:7px 10px;font-size:.74rem}#game .controls form{gap:5px}#game .controls input,#game .controls select{padding:6px}
+ #game .round-picker{padding:6px;margin:0;gap:5px;width:100%}#game .round-picker h3{margin:0;font-size:.72rem;width:100%}#game .round-picker select{min-width:0;flex:1 1 120px;padding:5px;font-size:.72rem}
+ #game .help{grid-area:help;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:0;overflow:auto;margin:0;width:100%;max-width:none;padding:10px}
+ #game .help[hidden]{display:none}#game .help h3{font-size:.9rem;margin:3px}#game .help p{font-size:.7rem;margin:5px}#game .help img{width:min(14vw,155px);height:auto;aspect-ratio:1;padding:5px}#game .invite-link{width:100%;margin:4px 0}#game .invite-link input{min-width:0;font-size:.7rem;padding:6px}#game .invite-link button{padding:6px;font-size:.7rem}
+ #game .people{display:none}#game .sound-controls{display:none}
+ #game:has(.help[hidden]){grid-template-columns:1fr;grid-template-areas:'identity identity' 'topbar topbar' 'roundhead roundhead' 'status status' 'board board' 'controls controls'}
+ .rules-screen{overflow:auto}
+}
+@media (min-width:801px) and (max-height:690px){
+ header .eyebrow,.tag{display:none}#landing .landing-heading p{display:none}
+ .category-option small{display:none}#createOptions>p:not(.create-note),.create-note{display:none}
+ #createOptions{grid-template-rows:auto auto minmax(0,1fr) auto auto auto auto}
+ .theme-details{display:none}
+}
+@media (max-width:800px){
+ main{width:100%;max-width:100%;padding:12px 12px 30px}
+ .panel{max-width:640px;width:100%;padding:16px}
+ .landing-columns{display:flex;flex-direction:column;gap:18px}
+ .landing-heading{text-align:center}
+ .create-options{margin:12px 0}.category-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .join-column{border-top:1px solid #795b7b;padding-top:15px}
+ #game .board{width:100%}#game .card{min-height:clamp(50px,12vw,85px)}
+}
+@media (min-width:801px){
+ #createOptions{grid-template-rows:auto auto auto minmax(0,1fr) auto auto auto auto auto auto}
+ #game:has(.help[hidden]){grid-template-columns:minmax(0,1fr);grid-template-areas:'identity' 'topbar' 'roundhead' 'status' 'board' 'controls'}
+}
+@media (min-width:801px) and (max-height:690px){#createOptions{grid-template-rows:auto auto minmax(0,1fr) auto auto auto auto auto auto}}
