@@ -112,78 +112,70 @@ body[data-view="board"] #game .people{display:none}
 #game .round-picker h3{width:100%;font-size:.85rem;margin:0}
 #game .round-picker select{flex:1 1 130px;min-width:0;padding:7px}
 #game .round-picker button{padding:9px}
-@media(min-width:801px){
- html,body{height:100%;overflow:hidden}
- main{width:100%;max-width:none;height:100dvh;min-height:0;padding:10px clamp(18px,2vw,38px);display:flex;flex-direction:column;gap:8px;overflow:hidden}
- header{flex:none;display:flex;justify-content:center;align-items:center;gap:16px;padding:0;min-height:40px}
- header h1{font-size:clamp(1.6rem,2.5vw,2.25rem);margin:0}header .eyebrow{display:none}header .tag{font-size:.8rem;margin:0}
- .rules-entry:not(.in-game){position:absolute;top:9px;right:clamp(18px,2vw,38px);margin:0;z-index:8}.rules-trigger{padding:7px 12px}
- #welcomeScreen:not([hidden]),#landing:not([hidden]),#game:not([hidden]){flex:1;min-height:0;max-width:1500px;width:100%;margin:0 auto}
- #welcomeScreen{display:flex;align-items:center;justify-content:center;padding:20px}
- #landing{display:flex;flex-direction:column;gap:8px;padding:12px 22px;overflow:hidden}
- #landing .landing-heading{flex:none}
- #landing .landing-heading p{font-size:.85rem;margin:0}
- #landing .landing-columns{flex:1;min-height:0}
- #landing #createOptions:not([hidden]){height:100%;display:grid;grid-template-rows:auto auto auto minmax(0,1fr) auto auto auto auto auto;gap:clamp(3px,.65vh,7px);align-content:stretch}
- #landing #createOptions h3{margin:0;font-size:1.15rem}
- #landing #createOptions>p:not(.create-note){font-size:.78rem}
- #landing .category-cards{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));min-height:0}
- #landing .category-option{height:100%;min-height:0;justify-content:center;padding:clamp(5px,.8vh,11px)}
- #landing .category-option strong{font-size:clamp(.68rem,1.6vh,.9rem)}
- #landing .category-option small{font-size:.65rem}
- #landing .theme-details details[open]{max-height:22vh;overflow:auto}
- #landing .create-options>label{font-size:.76rem}
- #landing .create-options input,#landing .create-options select{padding:clamp(5px,.75vh,9px)}
- #landing .create-options>button{padding:clamp(7px,1vh,12px)}
- #landing .join-column{padding:20px;max-width:550px}
- #game{display:flex;flex-direction:column;gap:clamp(3px,.6vh,8px);overflow:hidden}
- #game .identity{position:static;margin:0;padding:5px}
- #game .rules-entry{display:none}
- #game .topbar{flex:none;padding:6px 10px}
- #game .roundhead{flex:none;margin:0;gap:10px}
- #game .roundhead h2{font-size:clamp(1rem,2.4vh,1.5rem);margin:0}
- #game .roundhead p{margin:0;font-size:.8rem}
- #game .clue-banner{position:static;flex:none;padding:6px}
- #game .notice{display:none}
- #game .stats{display:none}
- body[data-view="board"] #game .board{flex:1;min-height:0;width:min(100%,calc((100dvh - 260px)*1.95));align-self:center;grid-template-rows:repeat(5,minmax(0,1fr));padding:5px}
- #game .card{height:100%;font-size:clamp(.65rem,1.3vw,1.18rem);padding:4px}
- #game .controls{flex:none;max-height:24vh;overflow:auto;align-items:center}
- #game .controls button{padding:8px 12px;font-size:.8rem}
- #game .round-picker{max-height:13vh;overflow:auto}
- #game .sound-controls{display:flex;flex:none;margin:0;padding:5px;gap:8px}
- body[data-view="lobby"] #game .roundhead{display:block;text-align:center}
- body[data-view="lobby"] #game .lobby-heading{flex:none}
- body[data-view="lobby"] #game .help{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;min-height:0;max-width:650px;width:100%;margin:0 auto;padding:10px}
- body[data-view="lobby"] #game .help img{width:clamp(110px,22vh,195px);height:auto}
- body[data-view="lobby"] #game .help p{margin:5px}
- body[data-view="lobby"] #game .people{flex:none;max-height:20vh;overflow:auto}
- body[data-view="lobby"] #game .controls{order:10}
- body[data-view="lobby"] #game .sound-controls{display:none}
- footer{flex:none;margin:0;font-size:.7rem}
-}
-@media(min-width:801px) and (max-height:700px){
- #landing .category-option small{display:none}
- #landing #createOptions>p:not(.create-note){display:none}
- #landing #createOptions:not([hidden]){grid-template-rows:auto auto minmax(0,1fr) auto auto auto auto auto}
- #landing .category-option{padding:4px}
- #landing .category-option .category-icon{font-size:14px}
- #landing .theme-details details{padding:4px 9px}
- #game .sound-controls{display:none}
-}
+
+/* Corrected v02: natural document flow; never overlap the lobby or clip controls. */
+html,body{height:auto;overflow-x:hidden;overflow-y:auto}
+main{max-width:1440px;width:100%;height:auto;min-height:100dvh;margin:auto;padding:16px clamp(14px,3vw,36px) 28px;display:block;overflow:visible}
+header{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:6px 0 14px}
+header h1{font-size:clamp(1.8rem,3vw,2.8rem);margin:0}
+header .eyebrow{display:none}
+header .tag{margin:0;font-size:.9rem}
+.rules-entry:not(.in-game){display:flex;justify-content:flex-end;margin:0 0 10px}
+.stage-screen{width:100%;max-width:none;margin:0 auto}
+#welcomeScreen{max-width:1000px;min-height:60vh;display:flex;align-items:center;justify-content:center}
+#landing{padding:clamp(16px,3vw,28px);display:block;overflow:visible}
+#landing .landing-heading{margin-bottom:14px}
+#landing .landing-columns{display:block;min-height:0}
+#landing #createOptions:not([hidden]){display:grid;height:auto;grid-template-rows:none;gap:12px;align-content:start}
+#landing .category-cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:none;gap:12px}
+#landing .category-option{height:auto;min-height:100px;padding:12px}
+#landing .theme-details details[open]{max-height:none;overflow:visible}
+#landing .create-options input,#landing .create-options select{padding:12px}
+#landing .create-options>button{padding:14px}
+#landing .join-column{max-width:540px;margin:0 auto}
+#game{display:block;overflow:visible}
+#game .identity{position:static;margin:0 0 12px}
+#game .topbar{margin:12px 0}
+#game .roundhead{margin:16px 0}
+#game .notice{display:block}
+#game .stats{display:flex}
+#game .clue-banner{position:static}
+#game .board{width:100%;grid-template-rows:none;gap:8px;padding:12px}
+#game .card{min-height:clamp(64px,8vh,110px);height:auto;font-size:clamp(.72rem,1.3vw,1.05rem)}
+#game .controls{max-height:none;overflow:visible;margin:16px 0}
+#game .round-picker{max-height:none;overflow:visible}
+#game .sound-controls{display:flex;flex-wrap:wrap}
+body[data-view="lobby"] #game{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);column-gap:24px;row-gap:12px;align-items:start}
+body[data-view="lobby"] #game > :not(#people):not(#hostHelp){grid-column:1/-1}
+body[data-view="lobby"] #game .lobby-heading{display:block;text-align:center;margin:10px 0}
+body[data-view="lobby"] #game .roundhead{margin:0}
+body[data-view="lobby"] #game .notice,body[data-view="lobby"] #game .board,body[data-view="lobby"] #game .stats,body[data-view="lobby"] #game .clue-banner{display:none!important}
+body[data-view="lobby"] #game .people{grid-column:1;grid-row:5;display:block;margin:0;max-height:none;overflow:visible}
+body[data-view="lobby"] #game .help:not([hidden]){grid-column:2;grid-row:5;display:flex;flex-direction:column;align-items:center;position:static;max-width:none;width:100%;min-height:0;height:auto;margin:0;padding:16px;overflow:hidden}
+body[data-view="lobby"] #game .help img{width:min(180px,100%);height:auto;aspect-ratio:1}
+body[data-view="lobby"] #game .help .invite-link{max-width:100%;width:100%}
+body[data-view="lobby"] #game .controls{grid-column:1/-1;grid-row:6;margin:8px 0}
+body[data-view="lobby"] #game .sound-controls{display:none}
+body[data-view="lobby"] #game .roster{grid-template-columns:repeat(2,minmax(0,1fr))}
+body[data-view="board"] #game .lobby-heading,body[data-view="board"] #game .help,body[data-view="board"] #game .people{display:none!important}
 @media(max-width:800px){
- html,body{overflow-x:hidden}
- main{max-width:100%;width:100%;padding:12px;min-height:100dvh}
- #welcomeScreen{min-height:65dvh;display:flex;padding:24px 12px}
- .welcome-actions{flex-direction:column;width:100%}.welcome-actions button{width:100%}
- #landing{width:100%;padding:14px;display:flex;flex-direction:column;gap:12px}
+ main{padding:12px}
+ header{gap:4px}
+ header .tag{font-size:.78rem;text-align:center}
  #landing .category-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
- #landing .category-option{min-height:94px}
- #landing .landing-columns{display:block}
- #landing .create-options{display:grid;gap:12px}
- #landing .join-column{padding:8px}
- #game .board{width:100%;grid-template-rows:repeat(5,minmax(55px,1fr))}
- #game .card{font-size:clamp(.52rem,2.3vw,.9rem);padding:2px}
- body[data-view="lobby"] #game .help{display:flex;flex-direction:column;align-items:center}
- #game .sound-controls{margin:10px 0}
+ #landing .category-option{min-height:92px}
+ #game .board{gap:4px;padding:5px}
+ #game .card{min-height:clamp(48px,13vw,75px);font-size:clamp(.51rem,2.3vw,.9rem);padding:2px}
+ body[data-view="lobby"] #game{display:flex;flex-direction:column;gap:12px}
+ body[data-view="lobby"] #game .people,body[data-view="lobby"] #game .help:not([hidden]),body[data-view="lobby"] #game .controls{width:100%;margin:0}
+ body[data-view="lobby"] #game .roster{grid-template-columns:1fr}
+ #game .roundhead{flex-wrap:wrap}
 }
+/* Lobby final layout: roster and invitation in their own grid row. */
+body[data-view="lobby"] #game{display:block}
+#lobbyColumns{display:none}
+body[data-view="lobby"] #lobbyColumns{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,340px);gap:22px;align-items:start;margin:22px 0}
+body[data-view="lobby"] #lobbyColumns .people,body[data-view="lobby"] #lobbyColumns .help:not([hidden]){grid-column:auto;grid-row:auto;position:static;display:block;width:100%;max-width:none;max-height:none;margin:0;overflow:visible}
+body[data-view="lobby"] #lobbyColumns .help:not([hidden]){text-align:center}
+body[data-view="lobby"] #game .controls{display:flex;grid-row:auto;grid-column:auto}
+@media(max-width:800px){body[data-view="lobby"] #lobbyColumns{display:flex;flex-direction:column;gap:16px}body[data-view="lobby"] #lobbyColumns .people,body[data-view="lobby"] #lobbyColumns .help:not([hidden]){width:100%}}

@@ -1,3 +1,9 @@
+// Place lobby roster and invitation together so neither can overlap the other.
+const lobbyColumns=document.createElement('div');
+lobbyColumns.id='lobbyColumns';
+const gameSection=document.getElementById('game');
+gameSection.insertBefore(lobbyColumns,document.getElementById('controls'));
+lobbyColumns.append(document.getElementById('people'),document.getElementById('hostHelp'));
 const socket=io();const $=id=>document.getElementById(id);let state=null;let lastGuessId=null;let lastWinId=null;let selectedCategory='bollywood';let selectedSubcategory='random';let catalog={categories:[],subcategories:[]};let soundEnabled=false;let audioCtx=null;let auth=JSON.parse(localStorage.getItem('clue-adda-session')||'null');
 const toast=message=>{const el=$('toast');el.textContent=message;el.style.display='block';setTimeout(()=>el.style.display='none',3500)};
 const request=(event,payload={})=>new Promise(resolve=>socket.emit(event,payload,resolve));
@@ -37,7 +43,7 @@ if(state.isHost&&!window.__hostSoundInitialized){window.__hostSoundInitialized=t
  if(state.isHost){
  if(state.ended){add('Play Again — New Board',restartFromPopup);add('Change Theme / Difficulty',themePopup);}
  if(!state.started)add('Start Game',async()=>{const r=await request('start');if(!r.ok)toast(r.error);else playSound('start')});
- const selector=document.createElement('div');selector.className='round-picker';selector.id='themeSwitcher';if(state.ended||!state.started){
+ const selector=document.createElement('div');selector.className='round-picker';selector.id='themeSwitcher';if(state.ended){
  const h=document.createElement('h3');h.textContent='Next Board — Category → Subcategory → Difficulty';
  const cat=document.createElement('select');cat.setAttribute('aria-label','Category');for(const c of catalog.categories){const opt=document.createElement('option');opt.value=c.id;opt.textContent=c.name;cat.appendChild(opt)}cat.value=state.categoryId;
  const sub=document.createElement('select');sub.setAttribute('aria-label','Subcategory');
