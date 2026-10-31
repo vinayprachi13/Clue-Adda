@@ -227,3 +227,9 @@ body[data-view="board"] #game .lobby-heading,body[data-view="results"] #game .lo
 body[data-view="board"] #game .help.collapsed,body[data-view="results"] #game .help.collapsed{display:flex!important}
 body[data-view="lobby"] #game .controls .round-picker{display:none!important}
 body[data-view="next"] #game .round-picker{display:flex!important}
+
+/* V03 read-only host preview: reveal exactly the room's generated words, never secrets. */
+body[data-view="lobby"].board-preview-open #game #board{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));grid-column:1/-1;margin:16px 0;visibility:visible}
+body[data-view="lobby"].board-preview-open #game #board .card{cursor:default;opacity:1;pointer-events:none}
+body[data-view="lobby"].board-preview-open #game #board .card:disabled{opacity:1}
+body[data-view="lobby"].board-preview-open #game #board::before{content:"BOARD PREVIEW · READ ONLY · SAME BOARD WHEN GAME STARTS";grid-column:1/-1;text-align:center;color:var(--festival,#efc278);font-weight:700;font-size:.85rem;padding:4px}
