@@ -179,3 +179,51 @@ body[data-view="lobby"] #lobbyColumns .people,body[data-view="lobby"] #lobbyColu
 body[data-view="lobby"] #lobbyColumns .help:not([hidden]){text-align:center}
 body[data-view="lobby"] #game .controls{display:flex;grid-row:auto;grid-column:auto}
 @media(max-width:800px){body[data-view="lobby"] #lobbyColumns{display:flex;flex-direction:column;gap:16px}body[data-view="lobby"] #lobbyColumns .people,body[data-view="lobby"] #lobbyColumns .help:not([hidden]){width:100%}}
+
+/* v02 release: dedicated responsive lobby and in-game invitations */
+:root{--accent:#EFC278;--panel:#382942;--surface:#241B32;--glow:#EFC27833}
+body[data-category="bollywood"]{--accent:#EFC278;--panel:#442438;--surface:#2C1628;--glow:#C9536933;background:radial-gradient(ellipse at top,#632E45,#26182D 64%,#170F20)}
+body[data-category="nostalgia"]{--accent:#74D3CB;--panel:#293653;--surface:#1D263D;--glow:#D85E9B44;background:radial-gradient(ellipse at top,#254F64,#25203C 65%,#151728)}
+body[data-category="halloween"]{--accent:#A8E0AD;--panel:#392653;--surface:#251D3B;--glow:#78C7A244;background:radial-gradient(ellipse at top,#4B2A68,#21182E 65%,#101521)}
+body[data-category="diwali"]{--accent:#FFD17B;--panel:#503044;--surface:#392338;--glow:#F0A34D44;background:radial-gradient(ellipse at top,#824525,#32203D 65%,#1C152B)}
+body[data-category="thanksgiving"]{--accent:#F0B17C;--panel:#4D3933;--surface:#332A2A;--glow:#B86C3B44;background:radial-gradient(ellipse at top,#68432F,#35272E 65%,#1E1B23)}
+body[data-category="christmas"]{--accent:#E6C98A;--panel:#25433D;--surface:#18332F;--glow:#A94D5944;background:radial-gradient(ellipse at top,#2A5845,#1A302D 65%,#161D26)}
+body[data-category="newyear"]{--accent:#E7C987;--panel:#273656;--surface:#192846;--glow:#D8B66C44;background:radial-gradient(ellipse at top,#344D7D,#1C2947 65%,#121A2F)}
+body[data-category] .roundhead .eyebrow,body[data-category] .score,body[data-category] .round-picker h3{color:var(--accent)}
+body[data-category] .clue-banner{background:var(--accent)}
+body[data-category] #game .topbar,body[data-category] #game .roster-col,body[data-category] #game .help,body[data-category] #game .round-picker,body[data-category] #game .sound-controls{background:var(--panel)}
+body[data-category] #game .board{box-shadow:0 0 30px var(--glow)}
+body[data-view="lobby"] #game{display:block!important}
+#lobbyColumns{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr);gap:24px;align-items:start;margin:20px 0}
+#lobbyColumns .people,#lobbyColumns .help{position:static!important;width:100%!important;max-width:none!important;min-width:0!important;height:auto!important;min-height:0!important;margin:0!important;grid-column:auto!important;grid-row:auto!important;transform:none!important;overflow:visible!important}
+#lobbyColumns .help{padding:20px;background:var(--panel);border:1px solid #6c5673;border-radius:16px;display:flex;flex-direction:column;align-items:center;gap:10px}
+#lobbyColumns .help[hidden]{display:none!important}
+#lobbyColumns .help img{display:block;max-width:200px;width:100%;height:auto;background:white;padding:10px;border-radius:12px}
+#lobbyColumns .help .invite-link{display:flex;width:100%;max-width:100%;flex-wrap:wrap}
+#lobbyColumns .help .invite-link input{min-width:0;width:100%;flex:1 1 220px}
+#lobbyColumns .help h3{margin:0}.invite-heading{display:flex;align-items:center;justify-content:space-between;width:100%;gap:10px}
+#lobbyColumns .roster{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#lobbyColumns .roster-col{min-width:0}
+body[data-view="lobby"] #game #board,body[data-view="lobby"] #game #notice,body[data-view="lobby"] #game #clueBanner,body[data-view="lobby"] #game .stats,body[data-view="lobby"] #game #soundControls{display:none!important}
+body[data-view="board"] #game #lobbyHeading,body[data-view="results"] #game #lobbyHeading,body[data-view="next"] #game #lobbyHeading{display:none!important}
+body[data-view="board"] #lobbyColumns,body[data-view="results"] #lobbyColumns,body[data-view="next"] #lobbyColumns{display:block;margin:8px 0}
+body[data-view="board"] #people,body[data-view="results"] #people,body[data-view="next"] #people{display:none!important}
+body[data-view="board"] #hostHelp,body[data-view="results"] #hostHelp,body[data-view="next"] #hostHelp{padding:12px!important;max-width:none!important}
+#hostHelp.collapsed> :not(.invite-heading){display:none!important}
+#hostHelp.collapsed{display:flex!important;min-height:0!important}
+body[data-view="results"] #game #board,body[data-view="next"] #game #board{opacity:.55;pointer-events:none}
+body[data-view="lobby"] #game #controls{margin-top:16px}
+.readiness-note{color:#FFE0B0;font-size:.9rem;margin:6px 0}
+body[data-view="lobby"] #game .roundhead{margin:12px 0}
+body[data-view="lobby"] #game .scorewrap{margin-left:auto}
+body[data-view="board"] #game .card,body[data-view="results"] #game .card{min-height:clamp(60px,8vw,108px)}
+@media(max-width:800px){#lobbyColumns{grid-template-columns:1fr;gap:14px}#lobbyColumns .roster{grid-template-columns:1fr}#lobbyColumns .help img{max-width:160px}body[data-view="board"] #game .card{min-height:clamp(44px,12vw,76px)}}
+
+/* Lobby container is the only grid parent; prevent older grid-row rules from displacing invite panel */
+body[data-view="lobby"] #lobbyColumns>#people,body[data-view="lobby"] #lobbyColumns>#hostHelp{grid-column:auto!important;grid-row:auto!important;display:block}
+body[data-view="lobby"] #lobbyColumns>#hostHelp{display:flex}
+body[data-view="lobby"] #game .lobby-heading{display:block}
+body[data-view="board"] #game .lobby-heading,body[data-view="results"] #game .lobby-heading,body[data-view="next"] #game .lobby-heading{display:none!important}
+body[data-view="board"] #game .help.collapsed,body[data-view="results"] #game .help.collapsed{display:flex!important}
+body[data-view="lobby"] #game .controls .round-picker{display:none!important}
+body[data-view="next"] #game .round-picker{display:flex!important}
