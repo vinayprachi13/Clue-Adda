@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700&display=swap');
+:root{font-family:'DM Sans',system-ui,sans-serif;color:#f7ebd9;background:#1e132a}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 10% 8%,#58335b 0,transparent 32%),radial-gradient(circle at 92% 72%,#42324b 0,transparent 30%),#1e132a}main{max-width:1150px;margin:auto;padding:22px 18px 60px}header{text-align:center;padding:20px 0 24px}.eyebrow{color:#f8bb67;font-weight:800;letter-spacing:.18em;font-size:.72rem}h1{font:700 clamp(2.4rem,7vw,5rem)/1.05 'Fraunces',serif;margin:12px 0}h1 em{color:#f6ae5d;font-style:normal}.tag{color:#e4c8b8}h2{font:700 clamp(1.5rem,3.5vw,2.2rem) 'Fraunces',serif;margin:10px 0}p{line-height:1.5}.panel{background:#30213b;border:1px solid #775773;border-radius:22px;padding:clamp(20px,4vw,36px);max-width:520px;margin:0 auto;text-align:center;box-shadow:0 18px 55px #130b1c80}form{text-align:left;display:grid;gap:12px}label{display:grid;gap:5px;font-weight:700;font-size:.88rem}input,select{background:#f7ead7;color:#261b30;border:0;border-radius:10px;padding:13px;font:inherit;width:100%}button{background:#ef9d52;color:#251729;border:0;border-radius:12px;padding:13px 18px;font:800 .95rem 'DM Sans',sans-serif;cursor:pointer}button:hover{filter:brightness(1.1)}button:disabled{opacity:.45;cursor:not-allowed}.separator{margin:20px;color:#c9adbd}.topbar{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;background:#35243e;padding:12px 16px;border-radius:12px;font-size:.9rem}.tiny{padding:6px 10px;font-size:.75rem;margin-left:7px}.roundhead{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:26px 0 12px}.roundhead p{margin:0;color:#cbb6c8}.score{font-weight:800;color:#f9c478;white-space:nowrap}.notice{background:#3d2b49;border-left:4px solid #f6ae5d;border-radius:8px;padding:13px 16px;margin:12px 0;font-weight:700}.stats{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:14px 0}.stats>div{padding:9px 14px;background:#37273e;border-radius:10px;font-weight:700}.red{color:#ff929b}.blue{color:#9fc5ff}.board{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(4px,1vw,10px);padding:clamp(7px,1.5vw,16px);border-radius:20px;background:#100d1b;border:1px solid #5a465d}.card{min-height:clamp(57px,10vw,120px);border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;overflow-wrap:anywhere;padding:4px;font-weight:800;font-size:clamp(.55rem,1.5vw,1.05rem);background:#f3e4c8;color:#32243b;border:3px solid transparent;box-shadow:inset 0 -4px 0 #c5ac8c}.card.revealed.R{background:#b95163;color:white}.card.revealed.B{background:#4b78b9;color:white}.card.revealed.N{background:#a99d94;color:#241929}.card.revealed.X{background:#15121c;color:white;border-color:#e8b05e}.card.secret:not(.revealed){border-color:var(--secret);background:#f5e8d5}.card:disabled{cursor:default;opacity:1}.card.guessable{cursor:pointer}.card.guessable:hover{transform:translateY(-2px);border-color:#f7b76e}.controls{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}.controls form{display:flex;flex-wrap:wrap;align-items:end}.controls input{width:150px}.controls select{width:90px}.people{color:#cbb6c8;font-size:.86rem;margin:16px 0}.help{border:1px solid #795b7b;border-radius:16px;padding:15px;text-align:center;max-width:380px;margin:20px auto}.help img{width:180px;height:180px;background:white;padding:10px;border-radius:12px}footer{text-align:center;margin:45px 0 0;color:#ad90a8;font-size:.8rem}#toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#f6ae5d;color:#23192b;border-radius:10px;padding:12px 18px;display:none;font-weight:800;max-width:90vw}@media(max-width:600px){.roundhead{align-items:start}.card{min-height:67px}.stats{font-size:.8rem}.board{gap:4px}.card{font-size:clamp(.51rem,2.4vw,.8rem)}header{padding-top:6px}}
+
+/* Game night UX enhancements */
+.identity{position:sticky;top:0;z-index:20;text-align:center;border-radius:0 0 14px 14px;padding:10px 16px;font-weight:800;letter-spacing:.03em;box-shadow:0 6px 18px #0a0715a6;margin:0 0 10px}
+.red-identity{background:#a8314b;color:#fff}.blue-identity{background:#285ea8;color:#fff}.host-identity{background:#e7a650;color:#27172d}
+.scorewrap{text-align:right}.scorewrap small{display:block;color:#d2b4cc;font-size:.62rem;letter-spacing:.09em}.score{font-size:1.25rem}
+.clue-banner{background:#f3d6a0;color:#281a32;text-align:center;padding:12px;border-radius:12px;font-weight:900;position:sticky;top:43px;z-index:19;box-shadow:0 4px 12px #100a19a0}
+.roster{display:grid;grid-template-columns:1fr 1fr;gap:12px}.roster-col{background:#32243e;border-radius:12px;overflow:hidden}.roster-col h4{padding:12px;margin:0;color:white}.roster-red h4{background:#a8314b}.roster-blue h4{background:#285ea8}.roster table{width:100%;border-collapse:collapse}.roster td{padding:10px;border-bottom:1px solid #66546b;font-size:.85rem}.roster td:last-child{text-align:right;color:#d8c1d6}
+.modal-backdrop{position:fixed;inset:0;background:#100817d9;z-index:100;display:flex;align-items:center;justify-content:center;padding:18px}.modal-backdrop[hidden]{display:none}.modal-panel{max-width:470px;width:100%;background:#382441;border:2px solid #f6ae5d;border-radius:22px;padding:28px;text-align:center;box-shadow:0 25px 80px #0008}.modal-panel h2{color:#ffe2a6}.modal-panel p{color:#f8e9dc}.modal-emoji{font-size:3.6rem}
+@media(max-width:600px){main{padding-top:0}.roster{grid-template-columns:1fr}.roundhead{margin-top:12px}.scorewrap small{font-size:.5rem}.score{font-size:1rem}.clue-banner{top:43px}.identity{font-size:.78rem}}
+
+/* Category and round selector; existing card styles remain untouched */
+.round-picker{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:14px;border:1px solid #806d91;border-radius:14px;background:#30233d;margin:12px 0}
+.round-picker label{font-weight:700;width:100%;color:#f8e8cc}
+.round-picker select{flex:1;min-width:180px;padding:10px;border-radius:9px;background:#fff4e2;color:#271a31}
+.round-picker button{white-space:nowrap}
+
+.invite-link{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:600px;margin:12px auto}.invite-link input{flex:1;min-width:200px;padding:12px;border-radius:10px;background:#fff4e2;color:#271a31}.invite-link button{white-space:nowrap}
+
+/* Room creation selectors; original board/card styling is unchanged */
+.create-options{display:grid;gap:12px;text-align:left;margin:20px 0}.create-options h3{margin:0;color:#f8e8cc}.create-options button{width:100%}.create-note{margin:0;color:#d7bbd3;font-size:.82rem}
+
+/* Invite-only landing and assassin game-over dialog */
+.create-options[hidden],.separator[hidden],#joinInviteText[hidden]{display:none!important}.modal-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}.modal-actions button{flex:1;min-width:135px}.modal-actions .danger-action{background:#a8314b;color:white}#joinInviteText{color:#f8c87e;text-align:center;margin:0 0 5px}
+
+/* Version 7: Assassin visible privately to spymasters and publicly only after reveal */
+.card.assassin-card{background:#17121d!important;color:#fff!important;border:3px solid #e8b05e!important;box-shadow:inset 0 -4px 0 #7b562d;display:flex;flex-direction:column;gap:2px;justify-content:center;align-items:center}
+.card.assassin-card .assassin-skull{font-size:clamp(1.15rem,2.8vw,2rem);line-height:1;color:#f5b65d}
+.card.assassin-card .assassin-label{font-size:clamp(.43rem,.95vw,.7rem);font-weight:900;letter-spacing:.08em;color:#f5b65d}
+.team-choice{border:0;padding:0;margin:0;min-width:0;text-align:left}
+.team-choice legend{font-weight:700;font-size:.88rem;margin-bottom:8px}
+.team-radio-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.team-option{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 10px;border:2px solid transparent;border-radius:12px;color:white;cursor:pointer;font-weight:800}
+.team-option input{width:18px;height:18px;flex:0 0 18px;margin:0;accent-color:#f7c77f}
+.team-option.team-red{background:#8c2e46}.team-option.team-blue{background:#27578f}
+.team-option:has(input:checked){border-color:#ffd18d;box-shadow:0 0 0 2px #f6ae5d55}
+.join-error{background:#642c40;border:2px solid #f4a7a7;border-radius:12px;padding:12px 14px;color:#fff0ec;text-align:left;font-weight:800;margin:6px 0}
+.join-error[hidden]{display:none!important}
+@media(max-width:600px){.card.assassin-card{gap:1px}.card.assassin-card .assassin-skull{font-size:1.1rem}.card.assassin-card .assassin-label{font-size:.43rem;letter-spacing:0}}
+
+/* Version 8: How to Play screen; game board and original card styles unchanged */
+.rules-entry{display:flex;justify-content:center;margin:0 0 16px}
+.rules-entry.in-game{justify-content:flex-end;margin:0 0 10px}
+.rules-trigger{background:#392643;color:#ffe0a9;border:2px solid #d7a05b;padding:10px 20px}
+.rules-screen{position:fixed;inset:0;z-index:200;overflow-y:auto;background:#1e132a;padding:24px 16px 48px}
+.rules-screen[hidden],.rules-pane[hidden]{display:none!important}
+.rules-content{max-width:860px;margin:auto;background:#30213b;border:1px solid #806482;border-radius:22px;padding:clamp(18px,4vw,36px)}
+.rules-heading{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px}
+.rules-heading p{color:#d9c0d4;margin-top:4px}
+.rules-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0}
+.rules-tabs button{background:#4a3456;color:#f5e7d7;border:2px solid #6d5373}
+.rules-tabs button[aria-selected="true"]{background:#ef9d52;color:#251729;border-color:#ffd28b}
+.rules-pane h3{font:700 1.35rem 'Fraunces',serif;color:#ffe0a9}
+.rules-pane ol{padding-left:24px;line-height:1.7}
+.rules-pane li{margin:0 0 14px}
+.rules-pane strong{color:#ffcf87}
+.rules-tip{border-left:4px solid #f6ae5d;background:#402d4b;padding:14px;border-radius:8px}
+.rules-bottom{display:flex;justify-content:center;margin-top:22px}
+body.rules-open{overflow:hidden}
+@media(max-width:600px){.rules-heading>button{width:100%}.rules-tabs button{padding:11px 6px;font-size:.83rem}}
+
+/* Clue Adda v1 visual identity */
+:root{--festival:#EFC278;--gold:#EFC278;--plum:#241B32;--ivory:#FFF5E7}
+body{background:radial-gradient(ellipse at 50% -20%,#493052 0%,#241B32 55%,#1a1424 100%);color:var(--ivory)}
+header h1{letter-spacing:.045em}header h1 em{color:var(--gold)}.eyebrow{color:var(--gold)}
+button:not(.card):not(.category-option){transition:transform .18s ease,filter .18s ease}button:not(.card):not(.category-option):hover{filter:brightness(1.08)}
+.category-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:14px 0}
+.category-option{border:2px solid #6b526d;background:var(--category);border-radius:14px;padding:16px 13px;min-height:112px;display:flex;flex-direction:column;align-items:flex-start;gap:8px;text-align:left;color:#fff5e7;cursor:pointer}
+.category-option.selected{border-color:#EFC278;box-shadow:0 0 0 2px #EFC27833}
+.category-option .category-icon{font-size:23px;color:#EFC278;line-height:1}
+.category-option strong{font-size:15px}.category-option small{font-size:11px;color:#e8d8e2}
+.theme-details{margin:8px 0 16px}.theme-details details{background:#3a2b46;border:1px solid #69536c;border-radius:12px;padding:12px 14px}.theme-details summary{cursor:pointer;color:#EFC278;font-weight:700}.theme-details p{font-size:13px;margin:11px 0;color:#e5d7e4}
+.sound-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center;margin:20px auto;padding:12px;border:1px solid #735e77;border-radius:14px;background:#34263e}.sound-controls label{display:flex;align-items:center;gap:8px;font-size:13px}.sound-controls input{width:90px}
+.roundhead .eyebrow{color:var(--festival)}.card{transition:transform .18s ease,background .2s ease}.card.guessable:hover{transform:translateY(-3px)}
+body[data-motion="off"] *,body[data-motion="off"] *::before,body[data-motion="off"] *::after{animation:none!important;transition:none!important}body[data-motion="reduced"] *{animation-duration:.05s!important;transition-duration:.05s!important}
+@media(max-width:480px){.category-cards{gap:8px}.category-option{padding:12px 9px;min-height:104px}.category-option strong{font-size:13px}}
