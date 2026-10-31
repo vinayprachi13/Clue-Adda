@@ -25,3 +25,7 @@ Deploying to Render restarts the Node process. In-memory rooms and active sessio
 Welcome → Host Setup (Category → Subcategory → Difficulty) or Join → Waiting Lobby (room code/QR/team roster) → Board only after Start Game. Desktop and TV screens use viewport-based sizing; mobile setup can scroll vertically. The lobby intentionally does not display the board, and the active board does not display the lobby QR. This correction replaces the earlier cramped single-page v02 layout.
 
 To update GitHub replace public/index.html, public/style.css, and public/app.js from this ZIP. The server.js and game.js gameplay logic is unchanged from the preceding v02 package.
+
+
+### V03 host board preview correction
+In the waiting lobby, the TV host can select **Preview Board** to see the actual 25 words already generated for that room, in their original positions. Preview is read-only and hides secret assignments and Assassin identity. Toggling it does not create or reshuffle a board. Start Game remains disabled until each team has a connected Spymaster and Player; starting uses the existing board.
