@@ -233,3 +233,23 @@ body[data-view="lobby"].board-preview-open #game #board{display:grid!important;g
 body[data-view="lobby"].board-preview-open #game #board .card{cursor:default;opacity:1;pointer-events:none}
 body[data-view="lobby"].board-preview-open #game #board .card:disabled{opacity:1}
 body[data-view="lobby"].board-preview-open #game #board::before{content:"BOARD PREVIEW · READ ONLY · SAME BOARD WHEN GAME STARTS";grid-column:1/-1;text-align:center;color:var(--festival,#efc278);font-weight:700;font-size:.85rem;padding:4px}
+
+/* Keep the Clue Adda title and tagline stacked */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header .tag {
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+}
